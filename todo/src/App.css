@@ -1,0 +1,18 @@
+.Todos {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  padding: 3px;
+  border-radius: 10px;
+  border: 3px groove;
+  margin-left: 40%;
+}
+h1 {
+  text-align: center;
+}
+
+.easy {
+  text-decoration: line-through;
+}
