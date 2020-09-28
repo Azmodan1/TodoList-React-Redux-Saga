@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Todo = ({ items, id, actionSame, destroy }) => {
+const Todo = ({ items, actionSame, destroy }) => {
   const leshracs = [];
 
   if (items.done) {
@@ -11,10 +11,12 @@ const Todo = ({ items, id, actionSame, destroy }) => {
     <ul className="Todos">
       <span className={leshracs.join(" ")}>
         <input type="checkbox" onChange={() => actionSame(items.id)} />
-        <strong>{items.id}</strong>
+        <strong> {items.id} </strong>
         {items.name}
       </span>
-      <button onClick={() => destroy(items.id)}>&times;</button>
+      <button className="delete" onClick={() => destroy(items.id)}>
+        &times;
+      </button>
     </ul>
   );
 };

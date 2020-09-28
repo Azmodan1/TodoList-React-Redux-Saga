@@ -1,3 +1,7 @@
+.main {
+  zoom: 150%;
+}
+
 .Todos {
   width: 30%;
   display: flex;
@@ -8,11 +12,27 @@
   border-radius: 10px;
   border: 3px groove;
   margin-left: 40%;
+  color: black;
 }
+
 h1 {
   text-align: center;
+  color: Aquamarine;
 }
 
 .easy {
   text-decoration: line-through;
+}
+
+.add {
+  text-align: center;
+}
+
+.delete {
+  color: blue;
+  background-color: Aqua;
+}
+.addb {
+  color: black;
+  background-color: Aqua;
 }
