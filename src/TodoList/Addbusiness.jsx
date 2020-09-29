@@ -5,8 +5,10 @@ export default function Addbusiness({ create }) {
 
   function subminitg(event) {
     event.preventDefault();
-    create(same);
-    setSame("");
+    if (same !== '') {
+      create(same);
+      setSame("");
+    }
   }
 
   return (
