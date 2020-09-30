@@ -40,7 +40,7 @@ function App() {
   }
 
   function styles() {
-    if ((styles1.length === 2)) {
+    if (styles1.length === 2) {
       setStyles1(styles1.splice(0, 1));
       return styles1;
     } else {setStyles1(styles1.concat("main2"))};
