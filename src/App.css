@@ -1,6 +1,13 @@
 .main {
   zoom: 150%;
+  background-color: yellow;
 }
+
+.main2 {
+  zoom: 150%;
+  background-color: grey;
+}
+
 
 .Todos {
   width: 30%;
@@ -35,4 +42,9 @@ h1 {
 .addb {
   color: black;
   background-color: Aqua;
+}
+
+.addstyle {
+  margin-left: 52.9%;
+  width: 96px;
 }

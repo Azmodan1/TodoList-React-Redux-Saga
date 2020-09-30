@@ -10,6 +10,8 @@ function App() {
     { id: 3, done: false, name: "Выиграть мид" },
   ]);
 
+  let [styles1, setStyles1] = useState(["main", "main2"]);
+
   function deleteItem(id) {
     setAffairs(affairs.filter((affairs) => affairs.id !== id));
   }
@@ -37,9 +39,22 @@ function App() {
     );
   }
 
+  function styles() {
+    if ((styles1.length === 2)) {
+      setStyles1(styles1.splice(0, 1));
+      return styles1;
+    } else {setStyles1(styles1.concat("main2"))};
+    return styles1;
+  }
+
+  console.log(styles1);
+
   return (
-    <div className="main">
+    <div className={styles1.join(" ")}>
       <h1> Leshrac List</h1>
+      <button className="addstyle" onClick={() => styles()}>
+        Style
+      </button>
       <Addbusiness create={addAffairs} />
       {affairs.length ? (
         <List
