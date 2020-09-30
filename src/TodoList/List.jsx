@@ -4,7 +4,7 @@ import React from "react";
 export default function List(props) {
   return (
     <ul>
-      {props.affairs.map((items) => {
+      {props.affairs.map(items => {
         return (
           <Todo
             items={items}
