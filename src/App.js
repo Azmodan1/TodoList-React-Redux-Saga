@@ -10,7 +10,7 @@ function App() {
     { id: 3, done: false, name: "Выиграть мид" },
   ]);
 
-  let [styles1, setStyles1] = useState(["main", "main2"]);
+  let [styles1, setStyles1] = useState(["main"]);
 
   function deleteItem(id) {
     setAffairs(affairs.filter((affairs) => affairs.id !== id));
@@ -40,10 +40,12 @@ function App() {
   }
 
   function styles() {
-    if (styles1.length === 2) {
-      setStyles1(styles1.splice(0, 1));
+    if (styles1 == "main") {
+      setStyles1(styles1.splice(1, 1).concat("main2"));
       return styles1;
-    } else {setStyles1(styles1.concat("main2"))};
+    } else if (styles1 == "main2") {
+      setStyles1(styles1.splice(1, 1).concat("main"));
+    }
     return styles1;
   }
 
