@@ -4,11 +4,11 @@ import React from "react";
 export default function List(props) {
   return (
     <ul>
-      {props.affairs.map(items => {
+      {props.affairs.map((item) => {
         return (
           <Todo
-            items={items}
-            key={items.id}
+            item={item}
+            key={item.id}
             actionSame={props.CompleteAction}
             destroy={props.Deleting}
           />

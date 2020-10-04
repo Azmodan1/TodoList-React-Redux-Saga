@@ -10,24 +10,26 @@ function App() {
     { id: 3, done: false, name: "Выиграть мид" },
   ]);
 
-  let [styles1, setStyles1] = useState(["main"]);
+  let [stylesColor, setStylesColor] = useState(["main"]);
 
   function deleteItem(id) {
-    setAffairs(affairs.filter((affairs) => affairs.id !== id));
+    setAffairs(affairs.filter((affair) => affair.id !== id));
   }
 
   function OnlyMid(id) {
     setAffairs(
-      affairs.map((affairs) => {
-        if (affairs.id === id) {
-          affairs.done = !affairs.done;
+      affairs.map((affair) => {
+        if (affair.id === id) {
+          affair.done = !affair.done;
         }
-        return affairs;
-      })
+        return affair;
+      }),
+      setTimeout(deleteItem, 1000, id)
     );
   }
 
-  function addAffairs(name) {
+  console.log(affairs);
+  function addAffairs(name,) {
     setAffairs(
       affairs.concat([
         {
@@ -40,19 +42,15 @@ function App() {
   }
 
   function styles() {
-    if (styles1 == "main") {
-      setStyles1(styles1.splice(1, 1).concat("main2"));
-      return styles1;
-    } else if (styles1 == "main2") {
-      setStyles1(styles1.splice(1, 1).concat("main"));
+    if (stylesColor == "main") {
+      setStylesColor(stylesColor.splice(1, 1).concat("main2"));
+    } else if (stylesColor == "main2") {
+      setStylesColor(stylesColor.splice(1, 1).concat("main"));
     }
-    return styles1;
   }
 
-  console.log(styles1);
-
   return (
-    <div className={styles1.join(" ")}>
+    <div className={stylesColor.join(" ")}>
       <h1> Leshrac List</h1>
       <button className="addstyle" onClick={() => styles()}>
         Style
