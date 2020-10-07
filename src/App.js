@@ -12,11 +12,11 @@ function App() {
 
   let [stylesColor, setStylesColor] = useState(["main"]);
 
-  function deleteItem(id) {
+  const deleteItem = (id) => {
     setAffairs(affairs.filter((affair) => affair.id !== id));
-  }
+  };
 
-  function OnlyMid(id) {
+  const CompleteAction = (id) => {
     setAffairs(
       affairs.map((affair) => {
         if (affair.id === id) {
@@ -26,10 +26,9 @@ function App() {
       }),
       setTimeout(deleteItem, 1000, id)
     );
-  }
+  };
 
-  console.log(affairs);
-  function addAffairs(name,) {
+  const addAffairs = (name) => {
     setAffairs(
       affairs.concat([
         {
@@ -39,15 +38,15 @@ function App() {
         },
       ])
     );
-  }
+  };
 
-  function styles() {
+  const styles = () => {
     if (stylesColor == "main") {
       setStylesColor(stylesColor.splice(1, 1).concat("main2"));
     } else if (stylesColor == "main2") {
       setStylesColor(stylesColor.splice(1, 1).concat("main"));
     }
-  }
+  };
 
   return (
     <div className={stylesColor.join(" ")}>
@@ -55,12 +54,12 @@ function App() {
       <button className="addstyle" onClick={() => styles()}>
         Style
       </button>
-      <Addbusiness create={addAffairs} />
+      <Addbusiness addAffairs={addAffairs} />
       {affairs.length ? (
         <List
           affairs={affairs}
-          CompleteAction={OnlyMid}
-          Deleting={deleteItem}
+          CompleteAction={CompleteAction}
+          deleteItem={deleteItem}
         />
       ) : (
         <h1> GG WP</h1>

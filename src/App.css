@@ -1,11 +1,13 @@
 .main {
   zoom: 150%;
-  background-color: yellow;
+  background-color: silver;
+  height: 900px;
 }
 
 .main2 {
   zoom: 150%;
   background-color: grey;
+  height: 900px;
 }
 
 .Todos {
@@ -22,6 +24,7 @@
 }
 
 h1 {
+  padding-top: 40px;
   text-align: center;
   color: Aquamarine;
 }

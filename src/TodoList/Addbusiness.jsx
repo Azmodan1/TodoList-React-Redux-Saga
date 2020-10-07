@@ -1,22 +1,24 @@
 import React, { useState } from "react";
 
-export default function Addbusiness({ create }) {
-  const [same, setSame] = useState("");
+const Addbusiness = ({ addAffairs }) => {
+  const [value, setValue] = useState("");
 
-  function subminitg(event) {
+  const subminitg = (event) => {
     event.preventDefault();
-    if (same !== '') {
-      create(same);
-      setSame("");
+    if (value !== "") {
+      addAffairs(value);
+      setValue("");
     }
-  }
+  };
 
   return (
     <form className="add" onSubmit={subminitg}>
-      <input value={same} onChange={(event) => setSame(event.target.value)} />
+      <input value={value} onChange={(event) => setValue(event.target.value)} />
       <button className="addb" type="submit">
         Add business
       </button>
     </form>
   );
-}
+};
+
+export default Addbusiness;
