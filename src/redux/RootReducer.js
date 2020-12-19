@@ -28,7 +28,7 @@ export const rootReducer = (state = initialState, action) => {
         ...state,
         affairs: state.affairs.map((affair) => ({
           ...affair,
-          done: affair.id === action.payload !== affair.done 
+          done: (affair.id === action.payload) !== affair.done,
         })),
       }
     default:
