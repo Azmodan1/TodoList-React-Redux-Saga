@@ -4,13 +4,13 @@ import { connect } from 'react-redux'
 import { deleteBusiness, competeBusiness } from '../redux/actions'
 
 const List = (props) => (
-  console.log(props.bus),
+  
   (
-    <ul>
-      {props.bus.map((bums) => (
+    <ul>{props.bus.length ?
+      props.bus.map((bums) => (
         <Todo bums={bums} key={bums.id} />
-      ))}
-    </ul>
+      )): <h1> Дел пока нет </h1>
+    }</ul>
   )
 )
 

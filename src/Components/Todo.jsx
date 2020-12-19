@@ -9,6 +9,7 @@ const Todo = (props) => {
     leshracs.push('easy')
   }
   
+  console.log(props.bums)
   return (
     <ul className="Todos">
       <span className={leshracs.join(' ')}>

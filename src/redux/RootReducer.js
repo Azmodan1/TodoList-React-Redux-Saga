@@ -1,4 +1,3 @@
-import { act } from 'react-dom/test-utils'
 import { ADD_BUSINESS, COMPLETE_BUSINESS, DELETE_BUSINESS } from './types'
 
 export const initialState = {
@@ -27,18 +26,25 @@ export const rootReducer = (state = initialState, action) => {
     case COMPLETE_BUSINESS:
       return {
         ...state,
-        affairs: state.affairs.map((affair) => {
-          if (affair.id === action.payload) {
-            affair.done = !affair.done
-          }
-          return state.affairs
-        }),
+        affairs: state.affairs.map((affair) => ({
+          ...affair,
+          done: affair.id === action.payload !== affair.done 
+        })),
       }
     default:
       return state
   }
 }
 
+// case COMPLETE_BUSINESS:
+//       return {
+//         ...state,
+//         affairs: state.affairs.map((affair) => ({
+//           ...affair,
+//           done: affair.id === action.payload.id,
+
+//         })),
+//       }
 // const CompleteAction = (id) => {
 //   setAffairs(
 //     affairs.map((affair) => {
