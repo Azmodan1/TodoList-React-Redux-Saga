@@ -21,7 +21,7 @@ function App() {
         Style
       </button>
       <Addbusiness />
-      <List/>
+      <List />
     </div>
   )
 }

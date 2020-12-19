@@ -8,7 +8,7 @@ const Todo = (props) => {
   if (props.bums.done === true) {
     leshracs.push('easy')
   }
-  
+
   console.log(props.bums)
   return (
     <ul className="Todos">
