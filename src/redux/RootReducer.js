@@ -1,40 +1,11 @@
-import { ADD_BUSINESS, COMPLETE_BUSINESS, DELETE_BUSINESS } from './types'
+import { combineReducers } from 'redux'
+import { appReducer } from './AppReducer'
+import { TodoReducer } from './TodoReducer'
 
-export const initialState = {
-  affairs: [
-    { id: 1, done: false, tittle: 'Взять Лешрака' },
-    { id: 2, done: false, tittle: 'Пойти на мид' },
-    { id: 3, done: false, tittle: 'Выиграть мид' },
-  ],
-}
-
-export const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case ADD_BUSINESS:
-      console.log(action.payload)
-      return {
-        ...state,
-        affairs: [...state.affairs, action.payload],
-      }
-    case DELETE_BUSINESS:
-      return {
-        ...state,
-        affairs: [
-          ...state.affairs.filter((affair) => affair.id !== action.payload),
-        ],
-      }
-    case COMPLETE_BUSINESS:
-      return {
-        ...state,
-        affairs: state.affairs.map((affair) => ({
-          ...affair,
-          done: (affair.id === action.payload) !== affair.done,
-        })),
-      }
-    default:
-      return state
-  }
-}
+export const rootReducer = combineReducers({
+  todo: TodoReducer,
+  app: appReducer,
+})
 
 // case COMPLETE_BUSINESS:
 //       return {

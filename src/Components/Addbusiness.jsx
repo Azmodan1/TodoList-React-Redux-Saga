@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
-import { addBusiness } from '../redux/actions'
-import { connect } from 'react-redux'
+import { addBusiness, showAlert } from '../redux/actions'
+import { useDispatch, useSelector } from 'react-redux'
+import Alert from './Alert'
 
-const Addbusiness = ({ bus, addBusiness }) => {
+const Addbusiness = () => {
+  const bus = useSelector((state) => state.todo.affairs)
   const [value, setValue] = useState('')
 
-  const subminitg = (event) => {
+  const dispatch = useDispatch()
+  const alert = useSelector((state) => state.app.alert)
+  const submiting = (event) => {
     event.preventDefault()
 
     const newAffair = {
@@ -14,28 +18,28 @@ const Addbusiness = ({ bus, addBusiness }) => {
       done: false,
     }
 
-    if (value !== '') {
-      addBusiness(newAffair)
+    if (value.trim()) {
+      dispatch(addBusiness(newAffair))
       setValue('')
+    } else {
+      return dispatch(showAlert('Название не может быть пустым'))
     }
   }
 
   return (
-    <form className="add" onSubmit={subminitg}>
-      <input value={value} onChange={(event) => setValue(event.target.value)} />
-      <button className="addb" type="submit">
-        Add business
-      </button>
-    </form>
+    <div>
+      {alert && <Alert text={alert} />}
+      <form className="add" onSubmit={submiting}>
+        <input
+          value={value}
+          onChange={(event) => setValue(event.target.value)}
+        />
+        <button className="addb" type="submit">
+          Add business
+        </button>
+      </form>
+    </div>
   )
 }
 
-const mapDispatchToProps = {
-  addBusiness,
-}
-
-const mapStateToProps = (store) => {
-  return { bus: store.affairs }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Addbusiness)
+export default Addbusiness
