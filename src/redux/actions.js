@@ -5,6 +5,7 @@ import {
   COMPLETE_BUSINESS,
   SHOW_ALERT,
   HIDE_ALERT,
+  Alert_Async,
 } from './types'
 
 export const addBusiness = (affair) => ({
@@ -14,7 +15,7 @@ export const addBusiness = (affair) => ({
 
 export const deleteBusiness = (id) => ({
   type: DELETE_BUSINESS,
-  payload: id,
+  payload: {id},
 })
 
 export const completeBusiness = (id) => ({
@@ -34,4 +35,9 @@ export const showAlert = (text) => ({
 
 export const hideAlert = () => ({
   type: HIDE_ALERT,
+})
+
+export const Alertich = (text) => ({
+  type: Alert_Async,
+  payload: text,
 })

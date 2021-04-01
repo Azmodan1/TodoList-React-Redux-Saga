@@ -19,7 +19,12 @@ export const TodoReducer = (state = initialState, action) => {
       return {
         ...state,
         affairs: [
-          ...state.affairs.filter((affair) => affair.id !== action.payload),
+          ...state.affairs
+            .filter((affair) => affair.id !== action.payload.id)
+            .map((affair2) => ({
+              ...affair2,
+              id: affair2.id >= action.payload.id ? affair2.id - 1 : affair2.id,
+            })),
         ],
       }
     case COMPLETE_BUSINESS:

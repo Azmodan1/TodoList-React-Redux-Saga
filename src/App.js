@@ -3,16 +3,20 @@ import './App.css'
 import List from './Components/List'
 import Addbusiness from './Components/Addbusiness'
 import ThemeSwitch from './Components/ThemeChanger'
-import { MainApp } from './StyledComponents'
+import { Container, MainApp } from './StyledComponents'
+import Alert from './Components/Alert'
+import { useSelector } from 'react-redux'
 
 function App() {
   return (
-    <MainApp>
-      <h1> Leshrac List</h1>
-      <ThemeSwitch />
-      <Addbusiness />
-      <List />
-    </MainApp>
+    <Container>
+      <MainApp>
+        <h1> Leshrac List</h1>
+        <Addbusiness />
+        <ThemeSwitch />
+        <List />
+      </MainApp>
+    </Container>
   )
 }
 export default App

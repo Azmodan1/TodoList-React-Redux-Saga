@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { InvertButtonTheme } from '../StyledComponents'
 const ThemeSwitch = ({ storeKey = 'ThemeSwitch' }) => {
   const cssString = `
-        html { filter: invert(100%); background: #fefefe; }
+        html { filter: invert(100%);  }
         * { background-color: inherit }
       `
 

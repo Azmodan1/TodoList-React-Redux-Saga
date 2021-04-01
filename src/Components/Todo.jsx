@@ -19,7 +19,7 @@ const Todo = (props) => {
           onChange={() => dispatch(completeBusiness(props.bums.id))}
         />
         <strong> {props.bums.id} </strong>
-        {props.bums.tittle}
+        {props.bums.title}
       </span>
       <DeleteButton onClick={() => dispatch(deleteBusiness(props.bums.id))}>
         &times;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { addBusiness, showAlert } from '../redux/actions'
+import { addBusiness, Alertich } from '../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import Alert from './Alert'
 
@@ -13,7 +13,7 @@ const Addbusiness = () => {
     event.preventDefault()
 
     const newAffair = {
-      tittle: value,
+      title: value,
       id: bus.length + 1,
       done: false,
     }
@@ -22,14 +22,14 @@ const Addbusiness = () => {
       dispatch(addBusiness(newAffair))
       setValue('')
     } else {
-      return dispatch(showAlert('Название не может быть пустым'))
+      return dispatch(Alertich('Название не может быть пустым'))
     }
   }
 
   return (
     <div>
-      {alert && <Alert text={alert} />}
       <form className="add" onSubmit={submiting}>
+        {alert && <Alert text={alert} />}
         <input
           value={value}
           onChange={(event) => setValue(event.target.value)}
