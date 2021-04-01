@@ -1,37 +1,31 @@
 import React from 'react'
-import { deleteBusiness, competeBusiness } from '../redux/actions'
-import { connect } from 'react-redux'
+import { deleteBusiness, completeBusiness } from '../redux/actions'
+import {  useDispatch } from 'react-redux'
+import { Todos, DeleteButton } from '../StyledComponents'
 
 const Todo = (props) => {
-  const leshracs = []
+  const dispatch = useDispatch()
 
+  const leshracs = []
   if (props.bums.done === true) {
     leshracs.push('easy')
   }
-  
+
   return (
-    <ul className="Todos">
+    <Todos>
       <span className={leshracs.join(' ')}>
         <input
           type="checkbox"
-          onChange={() => props.competeBusiness(props.bums.id)}
+          onChange={() => dispatch(completeBusiness(props.bums.id))}
         />
         <strong> {props.bums.id} </strong>
-        {props.bums.tittle}
+        {props.bums.title}
       </span>
-      <button
-        className="delete"
-        onClick={() => props.deleteBusiness(props.bums.id)}
-      >
+      <DeleteButton onClick={() => dispatch(deleteBusiness(props.bums.id))}>
         &times;
-      </button>
-    </ul>
+      </DeleteButton>
+    </Todos>
   )
 }
 
-const mapDispatchToProps = {
-  deleteBusiness,
-  competeBusiness,
-}
-
-export default connect(null, mapDispatchToProps)(Todo)
+export default Todo

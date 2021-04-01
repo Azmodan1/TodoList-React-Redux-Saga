@@ -1,25 +1,18 @@
 import Todo from './Todo'
 import React from 'react'
-import { connect } from 'react-redux'
-import { deleteBusiness, competeBusiness } from '../redux/actions'
+import { useSelector } from 'react-redux'
 
-const List = (props) => (
-  console.log(props.bus),
-  (
-    <ul>
-      {props.bus.map((bums) => (
-        <Todo bums={bums} key={bums.id} />
-      ))}
-    </ul>
-  )
-)
 
-const mapDispatchToProps = {
-  deleteBusiness,
-  competeBusiness,
-}
-const mapStateToProps = (store) => {
-  return { bus: store.affairs }
+const List = () => {
+const bus = useSelector((state) => state.todo.affairs)
+return(
+  <ul>
+    {bus.length ? (
+      bus.map((bums) => <Todo bums={bums} key={bums.id} />)
+    ) : (
+      <h1> Дел пока нет </h1>
+    )}
+  </ul>)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(List)
+export default List

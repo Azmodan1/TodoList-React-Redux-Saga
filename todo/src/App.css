@@ -1,32 +1,7 @@
-.main {
-  zoom: 150%;
-  background-color: silver;
-  height: 900px;
-}
-
-.main2 {
-  zoom: 150%;
-  background-color: grey;
-  height: 900px;
-}
-
-.Todos {
-  width: 30%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px;
-  padding: 3px;
-  border-radius: 10px;
-  border: 3px groove;
-  margin-left: 40%;
-  color: black;
-}
-
 h1 {
   padding-top: 40px;
   text-align: center;
-  color: Aquamarine;
+  color: Aqua;
 }
 
 .easy {
@@ -35,19 +10,20 @@ h1 {
 
 .add {
   text-align: center;
+  border-radius: 15px;
 }
 
-.delete {
-  color: blue;
-  background-color: Aqua;
-}
 .addb {
   color: black;
   background-color: Aqua;
+  border-radius: 15px;
 }
 
-.addstyle {
-  margin-left: 52.9%;
-  width: 96px;
-  background-color: aqua;
+.alert {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  border: 3px solid;
+  border-radius: 19px;
+  margin-bottom: 25px;
 }
