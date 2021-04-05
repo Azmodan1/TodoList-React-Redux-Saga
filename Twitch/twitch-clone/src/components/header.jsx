@@ -19,7 +19,7 @@ export default function header() {
         <h4>...</h4>
       </div>
       <div className="header_center">
-        <input className="Input" placeholder="Поиск" />
+        <input className="Input" placeholder="Поиск..." />
       </div>
       <div className="header_right">
         <Crown onmouseover={<Prompt/>} />
